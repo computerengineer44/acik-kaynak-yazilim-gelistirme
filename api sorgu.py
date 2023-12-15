@@ -1,6 +1,6 @@
 import requests
 
-api_url = 'https://jsonplaceholder.typicode.com/posts'  # Örnek bir JSON Placeholder API URL'si
+api_url = 'https://jsonplaceholder.typicode.com/posts' 
 
 
 post_data = {
