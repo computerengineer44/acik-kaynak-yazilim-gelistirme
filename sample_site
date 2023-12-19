@@ -1,0 +1,23 @@
+server {
+    listen 82;  
+
+    location / {
+        include proxy_params; 
+        proxy_pass http://unix:/opt/bugraenhar/app.sock;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /static {
+        include /etc/nginx/mime.types; 
+        root /opt/bugraenhar/; 
+      
+    }
+    
+    location /images {
+         alias /opt/bugraenhar/images/;
+         access_log off;
+     }
+}
