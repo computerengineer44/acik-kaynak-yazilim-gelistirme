@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./Hafta6
+    command: python3 demoapp.py run -h 0.0.0.0
+    volumes:
+      - ./hafta6/:/usr/src/app/
+    ports:
+      - 5001:5000
